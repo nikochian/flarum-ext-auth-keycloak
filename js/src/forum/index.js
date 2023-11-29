@@ -6,7 +6,7 @@ import Button from 'flarum/components/Button';
 import LogInModal from 'flarum/components/LogInModal';
 import AvatarEditor from 'flarum/components/AvatarEditor';
 
-app.initializers.add('spookygames-auth-keycloak', () => {
+app.initializers.add('nikochian-auth-keycloak', () => {
 
     function addKeycloakLoginButton(items) {
         items.add('logIn',
@@ -79,7 +79,7 @@ app.initializers.add('spookygames-auth-keycloak', () => {
     });
 
     extend(AvatarEditor.prototype, 'view', function (vdom) {
-        if (app.forum.attribute('spookygames-auth-keycloak.delegate_avatars')) {
+        if (app.forum.attribute('nikochian-auth-keycloak.delegate_avatars')) {
           // Hide avatar upload overlay
           vdom.children.length = 1;
         }
@@ -87,7 +87,7 @@ app.initializers.add('spookygames-auth-keycloak', () => {
     });
 
     extend(AvatarEditor.prototype, 'controlItems', function (items) {
-        if (app.forum.attribute('spookygames-auth-keycloak.delegate_avatars')) {
+        if (app.forum.attribute('nikochian-auth-keycloak.delegate_avatars')) {
           // Hide avatar controls
           items._items = {};
         }

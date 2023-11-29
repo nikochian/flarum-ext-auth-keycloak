@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@spookygames/flarum-ext-auth-keycloak",
+  "name": "@nikochian/flarum-ext-auth-keycloak",
   "dependencies": {
     "flarum-webpack-config": "^2.0",
     "webpack": "^5.76",

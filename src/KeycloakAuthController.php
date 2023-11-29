@@ -63,14 +63,14 @@ class KeycloakAuthController implements RequestHandlerInterface
         $redirectUri = $conf['url'] . "/auth/keycloak";
 
         $provider = new Keycloak([
-                'authServerUrl'         => $this->settings->get('spookygames-auth-keycloak.server_url'),
-                'realm'                 => $this->settings->get('spookygames-auth-keycloak.realm'),
-                'clientId'              => $this->settings->get('spookygames-auth-keycloak.app_id'),
-                'clientSecret'          => $this->settings->get('spookygames-auth-keycloak.app_secret'),
+                'authServerUrl'         => $this->settings->get('nikochian-auth-keycloak.server_url'),
+                'realm'                 => $this->settings->get('nikochian-auth-keycloak.realm'),
+                'clientId'              => $this->settings->get('nikochian-auth-keycloak.app_id'),
+                'clientSecret'          => $this->settings->get('nikochian-auth-keycloak.app_secret'),
                 'redirectUri'           => $redirectUri,
-                'encryptionAlgorithm'   => $this->settings->get('spookygames-auth-keycloak.encryption_algorithm'),
-                'encryptionKey'         => $this->settings->get('spookygames-auth-keycloak.encryption_key'),
-                'version'               => $this->settings->get('spookygames-auth-keycloak.keycloak_version')
+                'encryptionAlgorithm'   => $this->settings->get('nikochian-auth-keycloak.encryption_algorithm'),
+                'encryptionKey'         => $this->settings->get('nikochian-auth-keycloak.encryption_key'),
+                'version'               => $this->settings->get('nikochian-auth-keycloak.keycloak_version')
             ]);
 
         $session = $request->getAttribute('session');
@@ -119,7 +119,7 @@ class KeycloakAuthController implements RequestHandlerInterface
         // Map Keycloak roles onto Flarum groups
         if (isset($remoteUserArray['roles']) && is_array($remoteUserArray['roles'])) {
 
-            if ($roleMapping = json_decode($this->settings->get('spookygames-auth-keycloak.role_mapping'), true)) {
+            if ($roleMapping = json_decode($this->settings->get('nikochian-auth-keycloak.role_mapping'), true)) {
 
                 $groups = [];
                 foreach ($remoteUserArray['roles'] as $role) {
@@ -134,7 +134,7 @@ class KeycloakAuthController implements RequestHandlerInterface
 
         // Map Keycloak attributes with custom mapping, if any
         $additionalAttributes = [];
-        if ($attributeMapping = json_decode($this->settings->get('spookygames-auth-keycloak.attribute_mapping'), true)) {
+        if ($attributeMapping = json_decode($this->settings->get('nikochian-auth-keycloak.attribute_mapping'), true)) {
             foreach ($attributeMapping as $sourceAttribute => $targetAttribute) {
                 if ($attributeValue = Arr::get($remoteUserArray, $sourceAttribute)) {
                     $additionalAttributes[$targetAttribute] = $attributeValue;
@@ -246,7 +246,7 @@ class KeycloakAuthController implements RequestHandlerInterface
   {
        $remoteUserArray = $remoteUser->toArray();
 
-       if ($this->settings->get('spookygames-auth-keycloak.delegate_avatars')) {
+       if ($this->settings->get('nikochian-auth-keycloak.delegate_avatars')) {
           $pic = Arr::get($remoteUserArray, 'picture');
           if ($pic && $user->getRawOriginal('avatar_url') != $pic) {
               $user->changeAvatarPath($pic);
