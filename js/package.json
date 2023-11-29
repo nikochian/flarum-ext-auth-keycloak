@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "@spookygames/flarum-ext-auth-keycloak",
+  "dependencies": {
+    "flarum-webpack-config": "^2.0",
+    "webpack": "^5.76",
+    "webpack-cli": "^5.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "flarum-tsconfig": "^1.0.2"
+  }
+}
