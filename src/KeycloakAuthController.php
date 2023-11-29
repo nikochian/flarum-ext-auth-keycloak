@@ -113,7 +113,6 @@ class KeycloakAuthController implements RequestHandlerInterface
 
         // Fine! We now know everything we need about our remote user
         $remoteUserArray = $remoteUser->toArray();
-        exit('User: <pre>'.print_r($remoteUserArray, true).'</pre>');
 
         // Map Keycloak roles onto Flarum groups
         if (isset($remoteUserArray['roles']) && is_array($remoteUserArray['roles'])) {
@@ -223,7 +222,7 @@ class KeycloakAuthController implements RequestHandlerInterface
    public function decorateRegistration(Registration $registration, KeycloakResourceOwner $remoteUser): Registration
    {
       $remoteUserArray = $remoteUser->toArray();
-
+       throw new Exception('User: <pre>'.print_r($remoteUserArray, true).'</pre>');
       $registration->provideTrustedEmail($remoteUser->getEmail());
 
       // Same regex used in Registration.suggestUsername
