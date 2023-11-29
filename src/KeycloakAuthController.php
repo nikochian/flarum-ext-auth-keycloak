@@ -105,10 +105,11 @@ class KeycloakAuthController implements RequestHandlerInterface
 
         // We got an access token, let's get user details
         try {
-
             /** @var KeycloakResourceOwner $user */
             $remoteUser = $provider->getResourceOwner($token);
-
+            var_dump("remoteUser===============start");
+            var_dump($remoteUser);
+            var_dump("remoteUser===============end");
         } catch (Exception $e) {
             exit('Failed to get resource owner: '.$e->getMessage());
         }
