@@ -22,17 +22,17 @@ Written for Keycloak version 4.8.3-final, tested up to 21.1.1, and Flarum 1.3.0.
 
 From the _Clients_ tab, add a new client for your Flarum instance (or use an existing one). Root URL should be the URL of your Flarum instance.
 
-![Add Keycloak client](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/master/images/keycloak-add-client.png "Add Keycloak client")
+![Add Keycloak client](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/main/images/keycloak-add-client.png "Add Keycloak client")
 
 In order to map Keycloak roles onto Flarum groups, you have to make roles visible from the userinfo endpoint. To this extent, add a mapper to your new client.
 
-![Create Keycloak mapper](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/master/images/keycloak-create-mapper-1.png "Create Keycloak mapper")
+![Create Keycloak mapper](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/main/images/keycloak-create-mapper-1.png "Create Keycloak mapper")
 
-![Add role mapper to Keycloak client](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/master/images/keycloak-create-mapper-2.png "Add role mapper to Keycloak client")
+![Add role mapper to Keycloak client](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/main/images/keycloak-create-mapper-2.png "Add role mapper to Keycloak client")
 
 From the _Realm Settings_ tab, find the key used by the OpenId Connect workflow (by default, RS256). Copy the algorithm as well as the public key.
 
-![Find Keycloak keys](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/master/images/keycloak-find-keys.png "Find Keycloak keys")
+![Find Keycloak keys](https://github.com/nikochian/flarum-ext-auth-keycloak/raw/main/images/keycloak-find-keys.png "Find Keycloak keys")
 
 ## Extension settings
 
