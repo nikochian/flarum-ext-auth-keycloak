@@ -107,15 +107,13 @@ class KeycloakAuthController implements RequestHandlerInterface
         try {
             /** @var KeycloakResourceOwner $user */
             $remoteUser = $provider->getResourceOwner($token);
-            var_dump("remoteUser===============start");
-            var_dump($remoteUser);
-            var_dump("remoteUser===============end");
         } catch (Exception $e) {
             exit('Failed to get resource owner: '.$e->getMessage());
         }
 
         // Fine! We now know everything we need about our remote user
         $remoteUserArray = $remoteUser->toArray();
+        exit('User: <pre>'.print_r($remoteUserArray, true).'</pre>');
 
         // Map Keycloak roles onto Flarum groups
         if (isset($remoteUserArray['roles']) && is_array($remoteUserArray['roles'])) {
